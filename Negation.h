@@ -1,0 +1,21 @@
+#ifndef NEGATION_H
+#define NEGATION_H
+#include "Formula.h"
+
+class Negation : public Formula {
+public:
+    Negation(Formula * formula);
+
+    std::ostream &display(std::ostream & out) const override;
+    void getVariables(std::set<char> & setVariables) const override;
+    ValuationList valuations() const;
+
+    bool operator()(const Valuation & v) const override;
+
+    ~Negation();
+private:
+
+    Formula * _operation;
+};
+
+#endif

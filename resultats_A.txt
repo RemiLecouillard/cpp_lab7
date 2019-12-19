@@ -1,0 +1,7 @@
+~(a|b) and (~a&~b) are equivalent.
+~(p&q) and (~p|~q) are equivalent.
+~~a and a are equivalent.
+(p&(q|r)) and ((p&q)|(p&r)) are equivalent.
+(p|(q&r)) and ((p|q)&(p|r)) are equivalent.
+((p&q)&r) and (p&(q&r)) are equivalent.
+((a&b)|(c&d)) and ((a|c)&((b|c)&((a|d)&(b|d)))) are equivalent.

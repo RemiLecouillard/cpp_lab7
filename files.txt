@@ -1,0 +1,17 @@
+README.txt
+Makefile
+main.cpp
+Formula.h
+Formula.cpp
+Variable.h
+Variable.cpp
+Negation.h
+Negation.cpp
+Conjunction.h
+Conjunction.cpp
+Disjunction.h
+Disjunction.cpp
+Valuation.h
+Valuation.cpp
+BuildFormula.h
+BuildFormula.cpp

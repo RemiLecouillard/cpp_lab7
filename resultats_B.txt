@@ -1,0 +1,4 @@
+~(~a&~b) and (a&b) are not equivalent.
+~~~a and a are not equivalent.
+~(p&q) and (~p&~q) are not equivalent.
+((a&b)|(c&d)) and ((a|c)&((b|d)&((a|d)&(~b|~c)))) are not equivalent.
