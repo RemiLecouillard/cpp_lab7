@@ -20,8 +20,6 @@ int main(int argc, char ** argv) {
 	char character;
 	string formula1_str;
 	string formula2_str;
-	const char *formula1_chars;
-	const char *formula2_chars;
 	ifstream file(argv[1]);
 
 	if(file) {
@@ -40,9 +38,9 @@ int main(int argc, char ** argv) {
 			Formula *formula1 = buildFormula(formula1_chars);
 			Formula *formula2 = buildFormula(formula2_chars);
 			if (*formula1 == *formula2) {
-				cout << *formula1 << " is equal to " << *formula2 << endl;
+				cout << *formula1 << " and " << *formula2 << " are equivalent."<< endl;
 			} else {
-				cout << *formula1 << " is not equal to " << *formula2 << endl;
+				cout << *formula1 << " and "  << *formula2 << " are not equivalent."  << endl;
 			}
 		}
 	} else {
