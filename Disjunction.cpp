@@ -48,3 +48,8 @@ ValuationList Disjunction::valuations() const {
 Formula* Disjunction::clone() const {
     return new Disjunction(_rightOp->clone(), _leftOp->clone());
 }
+
+Disjunction::Disjunction(const Disjunction & other) {
+    _leftOp = other._leftOp->clone();
+    _rightOp = other._rightOp->clone();
+}

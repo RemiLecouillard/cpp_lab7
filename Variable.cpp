@@ -27,3 +27,6 @@ ValuationList Variable::valuations() const {
 Formula* Variable::clone() const {
     return new Variable(_character);
 }
+
+Variable::Variable(const Variable & other) : _character(other._character) {
+}

@@ -7,6 +7,7 @@ class Variable : public Formula {
 
 	public:
 		Variable(char character);
+		Variable(const Variable & other);
 		std::ostream &display(std::ostream & out) const override;
 		void getVariables(std::set<char> & setVariables) const override;
 		Formula* clone() const override;

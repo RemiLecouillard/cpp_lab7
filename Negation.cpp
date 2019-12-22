@@ -32,3 +32,7 @@ ValuationList Negation::valuations() const {
 Formula* Negation::clone() const {
     return new Negation(_operation->clone());
 }
+
+Negation::Negation(const Negation & other) {
+    _operation = other._operation->clone();
+}

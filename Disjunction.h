@@ -6,6 +6,7 @@
 class Disjunction : public Formula {
 public:
     Disjunction(Formula * formula1,Formula * formula2);
+    Disjunction(const Disjunction & other);
 
     std::ostream &display(std::ostream & out) const override;
     void getVariables(std::set<char> & setVariables) const override;

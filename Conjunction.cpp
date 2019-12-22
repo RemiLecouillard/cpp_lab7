@@ -49,3 +49,8 @@ ValuationList Conjunction::valuations() const {
 Formula* Conjunction::clone() const {
     return new Conjunction(_rightOp->clone(), _leftOp->clone());
 }
+
+Conjunction::Conjunction(const Conjunction & other) {
+    _leftOp = other._leftOp->clone();
+    _rightOp = other._rightOp->clone();
+}
