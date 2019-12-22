@@ -1,5 +1,6 @@
 #include <iostream>
-
+#include <fstream>
+#include <string>
 #include "Negation.h"
 #include "Variable.h"
 #include "BuildFormula.h"
@@ -10,20 +11,44 @@ using namespace std;
 
 
 int main(int argc, char ** argv) {
+	if (argc != 2)
+	{
+		cerr << "Missing parameters" << endl;
+		return EXIT_FAILURE;
+	}
+	char space = ' ';
+	char character;
+	string formula1_str;
+	string formula2_str;
+	const char *formula1_chars;
+	const char *formula2_chars;
+	ifstream file(argv[1]);
 
-	Formula *f = buildFormula("(&(&(|pq)(|pr))(&~pt))");
-	Formula *f2 = buildFormula("(&(&(|pq)(|pr))(&~pt))");
-	Valuation v;
-	ValuationList list = f->valuations();
-	cout << list.getVariables() << " " << list.getNbVariables() << endl;
-	
-	std::cout << *f << endl;
-	std::for_each(list.begin(), list.end(), [](const Valuation & v) {cout << v << endl;});
+	if(file) {
+		while (file.good())
+			{
+			file >> formula1_str;		
+			file.get(character);
+			if(character != space) {
+				cerr << "Wrong file format" << endl;
+				return EXIT_FAILURE;
+			}
+			file >> formula2_str;
+			const char *formula1_chars = formula1_str.c_str();
+			const char *formula2_chars = formula2_str.c_str();
 
-	cout << "is Valid ? ";
-	cout << f->isValid() << endl;
-	cout << "is satisfiable ? ";
-	cout << f->isSatisfiable() << endl;    
-	cout << "is equal ? ";
-	cout << (*f==*f2) << endl;
+			Formula *formula1 = buildFormula(formula1_chars);
+			Formula *formula2 = buildFormula(formula2_chars);
+			if (*formula1 == *formula2) {
+				cout << *formula1 << " is equal to " << *formula2 << endl;
+			} else {
+				cout << *formula1 << " is not equal to " << *formula2 << endl;
+			}
+		}
+	} else {
+		cerr << "Can not open this file!" << endl;
+		return EXIT_FAILURE;
+	}
+	file.close();
+	return EXIT_SUCCESS;
 }
