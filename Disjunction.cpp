@@ -53,3 +53,26 @@ Disjunction::Disjunction(const Disjunction & other) {
     _leftOp = other._leftOp->clone();
     _rightOp = other._rightOp->clone();
 }
+
+Disjunction Disjunction::operator=(const Disjunction & other) {
+    if (_leftOp) {
+        delete _leftOp;
+    }
+    if (_rightOp) {
+        delete _rightOp;
+    }
+
+    if (other._leftOp) {
+        _leftOp = other._leftOp->clone();
+    } else {
+        _leftOp = nullptr;
+    }
+
+    if (other._rightOp) {
+        _rightOp = other._rightOp->clone();
+    } else {
+        _rightOp = nullptr;
+    }
+
+    return *this;
+}

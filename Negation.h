@@ -6,6 +6,7 @@ class Negation : public Formula {
 public:
     Negation(Formula * formula);
     Negation(const Negation & other);
+    Negation operator=(const Negation & other);
 
     std::ostream &display(std::ostream & out) const override;
     void getVariables(std::set<char> & setVariables) const override;

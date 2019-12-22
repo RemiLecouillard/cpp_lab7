@@ -54,3 +54,26 @@ Conjunction::Conjunction(const Conjunction & other) {
     _leftOp = other._leftOp->clone();
     _rightOp = other._rightOp->clone();
 }
+
+Conjunction Conjunction::operator=(const Conjunction & other) {
+    if (_leftOp) {
+        delete _leftOp;
+    }
+    if (_rightOp) {
+        delete _rightOp;
+    }
+
+    if (other._leftOp) {
+        _leftOp = other._leftOp->clone();
+    } else {
+        _leftOp = nullptr;
+    }
+
+    if (other._rightOp) {
+        _rightOp = other._rightOp->clone();
+    } else {
+        _rightOp = nullptr;
+    }
+
+    return *this;
+}

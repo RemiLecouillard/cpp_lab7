@@ -30,3 +30,8 @@ Formula* Variable::clone() const {
 
 Variable::Variable(const Variable & other) : _character(other._character) {
 }
+
+Variable Variable::operator=(const Variable & other) {
+    _character = other._character;
+    return *this;
+}

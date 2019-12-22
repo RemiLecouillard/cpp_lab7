@@ -36,3 +36,17 @@ Formula* Negation::clone() const {
 Negation::Negation(const Negation & other) {
     _operation = other._operation->clone();
 }
+
+Negation Negation::operator=(const Negation & other) {
+    if (_operation) {
+        delete _operation;
+    }
+
+    if (other._operation) {
+        _operation = other._operation->clone();
+    } else {
+        _operation = nullptr;
+    }
+
+    return *this;
+}

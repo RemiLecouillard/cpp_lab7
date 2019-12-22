@@ -9,6 +9,7 @@ public:
 
     Conjunction(Formula * formula1,Formula * formula2);
     Conjunction(const Conjunction & other);
+    Conjunction operator=(const Conjunction & other);
 
     std::ostream &display(std::ostream & out) const override;
     bool operator()(const Valuation & v) const override;
