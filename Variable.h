@@ -9,7 +9,8 @@ class Variable : public Formula {
 		Variable(char character);
 		std::ostream &display(std::ostream & out) const override;
 		void getVariables(std::set<char> & setVariables) const override;
-		ValuationList valuations() const;
+		Formula* clone() const override;
+		ValuationList valuations() const override;
 
 		bool operator()(const Valuation & v) const override;
 

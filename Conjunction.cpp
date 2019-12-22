@@ -45,3 +45,7 @@ ValuationList Conjunction::valuations() const {
     
     return ValuationList(characters);
 }
+
+Formula* Conjunction::clone() const {
+    return new Conjunction(_rightOp->clone(), _leftOp->clone());
+}

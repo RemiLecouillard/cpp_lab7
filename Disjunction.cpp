@@ -44,3 +44,7 @@ ValuationList Disjunction::valuations() const {
     
     return ValuationList(characters);
 }
+
+Formula* Disjunction::clone() const {
+    return new Disjunction(_rightOp->clone(), _leftOp->clone());
+}

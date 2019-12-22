@@ -22,3 +22,8 @@ ValuationList Variable::valuations() const {
     character.insert(_character);
     return ValuationList(character);
 }
+
+
+Formula* Variable::clone() const {
+    return new Variable(_character);
+}

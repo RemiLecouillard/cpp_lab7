@@ -11,6 +11,7 @@ class Formula {
 		virtual std::ostream &display(std::ostream & out) const = 0;
 		virtual void getVariables(std::set<char> & setVariables) const = 0;
 		virtual ValuationList valuations() const = 0;
+		virtual Formula* clone() const = 0;
 		bool isValid() const;
 		bool isSatisfiable() const;
 
